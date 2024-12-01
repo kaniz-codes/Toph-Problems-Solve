@@ -1,31 +1,15 @@
 #include <iostream>
 using namespace std;
-
-int main() {
-    int N;
-    cin >> N;
-
-    // Check for valid input
-    if (N <= 0) {
-        cout << "Invalid input. N must be greater than 0." << endl;
+int fibonacci(int n)
+{
+    if (n <= 2)
         return 1;
-    }
-
-    // Base cases
-    if (N == 1 || N == 2) {
-        cout << 1 << endl;
-        return 0;
-    }
-
-    int a = 1, b = 1, fib;
-
-    // Calculate Fibonacci number
-    for (int i = 3; i <= N; i++) {
-        fib = a + b;
-        a = b;
-        b = fib;
-    }
-
-    cout << fib << endl;
+    return fibonacci(n - 1) + fibonacci(n - 2);
+}
+int main()
+{
+    int n;
+    cin >> n;
+    cout << fibonacci(n) << endl;
     return 0;
 }
